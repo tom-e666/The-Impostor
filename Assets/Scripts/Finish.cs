@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class NewBehaviourScript : MonoBehaviour
 {
+    [SerializeField] private ScoreManager scoreManager;
     private AudioSource finishSound;
 
     private bool levelComleted = false;
@@ -26,7 +27,8 @@ public class NewBehaviourScript : MonoBehaviour
 
     private void CompleteLevel()
     {
-       SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        scoreManager.UpdatePermanentScore();
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
 }
